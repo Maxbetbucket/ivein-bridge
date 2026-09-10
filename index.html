@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<script>
+  // Telegram loads THIS page first (it's what gets registered as the
+  // Menu Button URL) and hands it launch data via the URL fragment --
+  // that's the only place Telegram puts it. Apps Script's own /exec
+  // URL does an internal redirect to actually serve its content, and
+  // that redirect drops the fragment before the real app ever sees it.
+  // This page runs before any of that, so the fragment is still here --
+  // grab it and forward it to the real app as a QUERY STRING param
+  // instead, since query strings (unlike fragments) survive redirects.
+  var EXEC_URL = 'https://script.google.com/macros/s/AKfycbwnhwXXKSFnVLj7fEflILFwufzVWog0n1hX-qL15dN7v2X0W2M9nEiEBmZESD9t7WpoCQ/exec';
+  var hash = window.location.hash.substring(1);
+  window.location.replace(EXEC_URL + (hash ? ('?' + hash) : ''));
+</script>
+</body>
+</html>
