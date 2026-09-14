@@ -160,7 +160,10 @@
     .dock-arrow[disabled] { opacity: 0; pointer-events: none; }
 
     .dock-viewport {
-      width: 224px; overflow: hidden; border-radius: 20px;
+      /* Sized to show exactly 4 icons (8px pad each side + 4*52px icons +
+         3*6px gaps = 242px) so it actually matches ICONS_PER_DOCK_PAGE=4
+         below -- at the old 224px, the 4th icon (Expense) was clipped. */
+      width: 242px; overflow: hidden; border-radius: 20px;
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApEAAACjCAMAAADl2LV2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHaUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQICAgQEBAUFBQYGBggICAoKCgsLCwwMDA0NDQ8PDxAQEBERERMTExUVFRYWFhcXFxkZGRoaGhsbGxwcHB4eHiAgICEhISIiIiQkJCUlJSYmJicnJygoKCoqKisrKywsLC0tLS8vLzExMTMzMzU1NTY2Njc3Nzg4ODo6Ojs7Ozw8PD09PT8/P0BAQEJCQkNDQ0REREVFRUZGRkdHR0hISElJSUpKSkxMTE1NTU5OTk9PT1BQUFFRUVJSUlNTU1RUVFVVVVZWVldXV1hYWFlZWVtbW1xcXF5eXl9fX2BgYGFhYWJiYmNjY2RkZGVlZWZmZmdnZ2hoaGpqamtra21tbW5ubm9vb3BwcHFxcXJycnNzc3R0dHV1dXZ2dnd3d3h4eHl5eXp6enx8fH19fX9/f4CAgISEhIiIiIyMjJCQkJSUlJiYmJubm5+fn6SkpKioqKysrLCwsLS0tLe3t7y8vLu7u8DAwMDAwMDAwMTExMTExMPDw8XFxcfHx8bGxszMzMvLy8vLy8/Pz8/Pz8/Pz8/Pz9TU1NPT09PT08/Pz9bW1tfX19fX19fX19jY2NfX19fX1/G6Q5wAAACedFJOUwBAj8/v/99QEK+fv////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+//z//fn/+vMP9Qr/+/EM//35//vyBQn9//779A8L1FhQAAAAlwSFlzAAAXEQAAFxEByibzPwAAAoNJREFUeF7t1lnbFlIYhuFbpVk00ESTIkWZ5zRINEmhMkWSyqzMJCqR6TOlDP3Xvnj/w3tvnOfOep61fR3rWLnsijFjx10JQzV+zIT/akwmThpcwXBN/j/IKYMVhm3sxNEiJw8WGL4po3/IwQgNJngiqTIp4wcTNBinSLpkcEIHRdJFkXRRJF0USRdF0kWRdFEkXRRJF0XSRZF0USRdMhWa5CpokmnQJFdDk1wDTTIdmiiSLpkBTTITmmQWNMm10CTXQZPMhiaZA00yF5ooki6ZB00yH5rkemiSG6BJFkCTLIQmWQRNshiaKJIuWQJNciM0yVJokmXQJDdBk9wMTbIcmuQWaJIV0CQroUluhSa5DZpkFTRRJF2yGprkdmiiSLrkDmiSO6FJ7oImuRua5B5oknuhSe6DJrkfmiiSLnkAmiiSLnkQmuQhaKJIuuRhaJI10CSPQJOshSZZB02yHppkAzTJo9BEkXTJRmiiSLrkMWiSTdAkj0OTPAFNshmaZAs0yVZokm3QJNuhSZ6EJtkBTfIUNMlOaKJIumQXNFEkXfI0NMkz0ESRdMmz0CS7oUn2QJPshSZ5DprkeWiSF6BJXoQmeQmaZB80USRd8jI0ySvQRJF0yX5ooki65FVokgPQJK9BkxyEJnkdmuQQNMlhaJIj0CRvQJO8CU3yFjTJ29Ak70ATRdIl70ITRdIl70GTvA9NchSa5Bg0yQfQJB9Ck3wETfIxNMkn0CSfQpN8Bk3yOTTJF9Akx6FJvoQmOQFN8hU0ydcnoUhOnYYe3+TMt9Dju5z9Hnr8kPz4E7T4OcnIL79Ch99GRovMyO9/QINzf14OctT5C3/9DcP1z78Xk+QSbkmxcb9jzK0AAAAASUVORK5CYII=);
       background-size: 100% 100%; background-repeat: no-repeat;
     }
@@ -187,7 +190,7 @@
     .dockicon img, .dockicon svg { width: 100%; height: 100%; object-fit: contain; display: block; }
     .dockicon .icon-dim { opacity: 1; color: var(--text-faint); }
     .dockicon .icon-focus { opacity: 0; position: absolute; inset: 8px; color: var(--accent); }
-    .dockicon.active { background: var(--accent-soft); transform: scale(1.2) translateY(-6px); }
+    .dockicon.active { transform: scale(1.2) translateY(-6px); }
     .dockicon.active .icon-dim { opacity: 0; }
     .dockicon.active .icon-focus { opacity: 1; }
 
